@@ -1,6 +1,7 @@
 package edu.ucsb.cs156.spring.hello;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.beans.Transient;
 
@@ -49,14 +50,14 @@ public class TeamTest {
     }
 
     @Test
-    public void equals_different_different_name() {
-        Team t1 = new Team();
-        t1.setName("foo");
-        t1.addMember("bar");
-        Team t2 = new Team();
-        t2.setName("foo");
-        t2.addMember("bar");
-        assertEquals(t1.hashCode(), t2.hashCode());
+    public void test_equals_same_name_different_members() {
+        Team t1 = new Team("gauchos");
+        Team t2 = new Team("gauchos");
+
+        t1.addMember("foo");
+        t2.addMember("John");
+
+        assertNotEquals(t1, t2);
     }
 
     @Test
