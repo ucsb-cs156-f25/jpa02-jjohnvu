@@ -43,11 +43,20 @@ public class TeamTest {
     }
 
     @Test
-    public void equals_same_different_name() {
+    public void equals_same_name_and_members() {
         Team t1 = new Team("team1");
         Team t2 = new Team("team1");
-        assertEquals(true, t1.equals(t2));
+        
+        assertEquals(t1, t2); 
     }
+
+    @Test
+    public void test_equals_different_names() {
+        Team t1 = new Team("team1");
+        Team t2 = new Team("team2");
+
+    assertNotEquals(t1, t2);
+}
 
     @Test
     public void test_equals_same_name_different_members() {
